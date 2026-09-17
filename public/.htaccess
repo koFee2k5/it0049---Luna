@@ -14,9 +14,6 @@ Options -Indexes
 	# If you installed CodeIgniter in a subfolder, you will need to
 	# change the following line to match the subfolder you need.
 	# http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase
-	# Set the RewriteBase to the project's public path when served from a subfolder
-	RewriteBase /it0049---Luna/IT0049/TFA1/Technical_Fa1/public/
-
 	# Redirect Trailing Slashes...
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteCond %{REQUEST_URI} (.+)/$

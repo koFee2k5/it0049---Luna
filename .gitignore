@@ -64,6 +64,8 @@ Vagrantfile
 !/writable/debugbar/index.html
 
 php_errors.log
+modules.txt
+spark_output.txt
 
 #-------------------------
 # User Guide Temp Files
