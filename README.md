@@ -7,7 +7,7 @@ This CodeIgniter 4 POS application replaces the TFA1 static PHP arrays with a My
 Requirements: PHP 8.2+ with `intl`, `mbstring`, and `mysqli`, Composer, and MySQL/MariaDB.
 
 1. Install dependencies with `composer install`.
-2. Copy `env` to `.env` (`copy env .env` on Windows).
+2. Copy `.env.example` to `.env` (`copy .env.example .env` on Windows). The real `.env` is ignored by Git.
 3. Update `.env` if needed. The included template uses:
 
    ```dotenv
@@ -25,6 +25,13 @@ Requirements: PHP 8.2+ with `intl`, `mbstring`, and `mysqli`, Composer, and MySQ
 Pages: `/customers` (database-backed Customer Accounts), `/users` (database-backed User Accounts), and `/about`.
 
 The SQL schema and sample data are in [`database/basic_pos.sql`](database/basic_pos.sql). Local `.env` files are ignored by Git.
+
+## Submission checklist
+
+- GitHub repository: https://github.com/koFee2k5/it0049---Luna
+- SQL export: [`database/basic_pos.sql`](database/basic_pos.sql)
+- Local hosted URL: `http://127.0.0.1:8080/` after starting XAMPP/MySQL and `php spark serve`
+- A public hosted URL and screenshots must be added separately if required by the faculty; this repository does not include deployment credentials.
 
 ## What is CodeIgniter?
 
