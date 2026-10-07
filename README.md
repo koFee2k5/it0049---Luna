@@ -1,4 +1,30 @@
-# CodeIgniter 4 Application Starter
+# Basic POS — TFA2
+
+This CodeIgniter 4 POS application replaces the TFA1 static PHP arrays with a MySQL database. The Customer Accounts and User Accounts pages retrieve their records through `CustomerModel` and `UserModel` using CodeIgniter Query Builder.
+
+## TFA2 setup
+
+Requirements: PHP 8.2+ with `intl`, `mbstring`, and `mysqli`, Composer, and MySQL/MariaDB.
+
+1. Install dependencies with `composer install`.
+2. Copy `env` to `.env` (`copy env .env` on Windows).
+3. Update `.env` if needed. The included template uses:
+
+   ```dotenv
+   database.default.hostname = localhost
+   database.default.database = basic_pos
+   database.default.username = root
+   database.default.password =
+   database.default.DBDriver = MySQLi
+   database.default.port = 3306
+   ```
+
+4. Import `database/basic_pos.sql` with `mysql -u root -p < database/basic_pos.sql`. It creates the `basic_pos` database, the required tables, and five sample records per table.
+5. Run `php spark serve` and open `http://localhost:8080`. Apache deployments should use the `public` directory as the document root.
+
+Pages: `/customers` (database-backed Customer Accounts), `/users` (database-backed User Accounts), and `/about`.
+
+The SQL schema and sample data are in [`database/basic_pos.sql`](database/basic_pos.sql). Local `.env` files are ignored by Git.
 
 ## What is CodeIgniter?
 

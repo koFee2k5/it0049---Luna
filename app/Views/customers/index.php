@@ -4,7 +4,7 @@
 <section>
     <p class="eyebrow">Records</p>
     <h1>Customer Accounts</h1>
-    <p class="intro">Customer records currently stored in a temporary PHP array.</p>
+    <p class="intro">Customer records retrieved from the MySQL database.</p>
 
     <div class="table-wrapper">
         <table>
@@ -13,6 +13,7 @@
                     <th>Full name</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>Created at</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,7 @@
                         <td><?= esc($customer['full_name']) ?></td>
                         <td><?= esc($customer['email']) ?></td>
                         <td><?= esc($customer['phone']) ?></td>
+                        <td><?= esc($customer['created_at']) ?></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>

@@ -4,8 +4,8 @@
 <section class="panel">
     <p class="eyebrow">About</p>
     <h1>About Basic POS</h1>
-    <p>Basic POS is an introductory CodeIgniter 4 project demonstrating routes, controllers, views, and temporary array-based data.</p>
-    <p>This version does not use a database. Customer and user records are sample data stored in their controllers.</p>
-    <p>Created by Juan Lorenzo M. Luna for TFA1.</p>
+    <p>Basic POS is a CodeIgniter 4 project demonstrating routes, controllers, views, Models, and Query Builder.</p>
+    <p>Customer and user account records are stored in MySQL and loaded through the application Models.</p>
+    <p>Created by Juan Lorenzo M. Luna for TFA2.</p>
 </section>
 <?= $this->endSection() ?>

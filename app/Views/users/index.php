@@ -4,7 +4,7 @@
 <section>
     <p class="eyebrow">Records</p>
     <h1>User Accounts</h1>
-    <p class="intro">Staff records currently stored in a temporary PHP array.</p>
+    <p class="intro">Staff records retrieved from the MySQL database.</p>
 
     <div class="table-wrapper">
         <table>
@@ -12,7 +12,7 @@
                 <tr>
                     <th>Username</th>
                     <th>Full name</th>
-                    <th>Role</th>
+                    <th>Created at</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,7 +20,7 @@
                     <tr>
                         <td><?= esc($user['username']) ?></td>
                         <td><?= esc($user['full_name']) ?></td>
-                        <td><span class="role"><?= esc($user['role']) ?></span></td>
+                        <td><?= esc($user['created_at']) ?></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>
