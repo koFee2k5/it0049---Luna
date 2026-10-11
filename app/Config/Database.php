@@ -200,6 +200,23 @@ class Database extends Config
         $this->default['password'] = getenv('DB_PASSWORD') ?: $this->default['password'];
         $this->default['port'] = (int) (getenv('DB_PORT') ?: $this->default['port']);
 
+        // Aiven requires TLS. Render can store the downloaded CA certificate
+        // as DB_SSL_CA, or expose a mounted certificate path as DB_SSL_CA_PATH.
+        $sslCaPath = getenv('DB_SSL_CA_PATH') ?: '';
+        $sslCaContents = getenv('DB_SSL_CA') ?: '';
+        if ($sslCaPath === '' && $sslCaContents !== '') {
+            $sslCaPath = WRITEPATH . 'aiven-ca.pem';
+            if (! is_file($sslCaPath) || file_get_contents($sslCaPath) !== $sslCaContents) {
+                file_put_contents($sslCaPath, $sslCaContents);
+            }
+        }
+        if ($sslCaPath !== '') {
+            $this->default['encrypt'] = [
+                'ssl_ca'     => $sslCaPath,
+                'ssl_verify' => true,
+            ];
+        }
+
         // Ensure that we always set the database group to 'tests' if
         // we are currently running an automated test suite, so that
         // we don't overwrite live data on accident.
