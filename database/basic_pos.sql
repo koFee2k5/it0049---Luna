@@ -31,11 +31,11 @@ CREATE TABLE tasks (
 );
 
 INSERT INTO customers (full_name, email, phone, created_at) VALUES
-('Ana Reyes', 'ana.reyes@example.com', '0917-123-4501', '2026-10-01 09:00:00'),
-('Ben Santos', 'ben.santos@example.com', '0917-123-4502', '2026-10-01 09:15:00'),
-('Carla Mendoza', 'carla.mendoza@example.com', '0917-123-4503', '2026-10-02 10:30:00'),
-('Diego Cruz', 'diego.cruz@example.com', '0917-123-4504', '2026-10-03 11:45:00'),
-('Ella Garcia', 'ella.garcia@example.com', '0917-123-4505', '2026-10-04 13:00:00');
+('Mara Villanueva', 'mara.villanueva@lunatasks.test', '0917-284-6301', '2026-10-01 09:00:00'),
+('Nico Bautista', 'nico.bautista@lunatasks.test', '0917-284-6302', '2026-10-01 09:15:00'),
+('Sofia Navarro', 'sofia.navarro@lunatasks.test', '0917-284-6303', '2026-10-02 10:30:00'),
+('Paolo Mercado', 'paolo.mercado@lunatasks.test', '0917-284-6304', '2026-10-03 11:45:00'),
+('Leah Castillo', 'leah.castillo@lunatasks.test', '0917-284-6305', '2026-10-04 13:00:00');
 
 INSERT INTO users (username, full_name, email, created_at) VALUES
 ('luna', 'Juan Lorenzo M. Luna', 'juan.luna@example.com', '2026-10-01 08:00:00');
