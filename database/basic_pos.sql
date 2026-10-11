@@ -1,6 +1,7 @@
 CREATE DATABASE IF NOT EXISTS basic_pos CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE basic_pos;
 
+DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS tasks;
 DROP TABLE IF EXISTS users;
 

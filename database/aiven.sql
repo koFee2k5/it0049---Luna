@@ -1,4 +1,5 @@
 -- Import this file while connected to the Aiven database named in DB_NAME.
+DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS tasks;
 DROP TABLE IF EXISTS users;
 
