@@ -97,6 +97,7 @@ _modules/*
 
 # phpenv local config
 .php-version
+ca.pem
 
 # Jetbrains editors (PHPStorm, etc)
 .idea/
