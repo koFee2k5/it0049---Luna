@@ -194,11 +194,11 @@ class Database extends Config
     {
         parent::__construct();
 
-        $this->default['hostname'] = getenv('DB_HOST') ?: $this->default['hostname'];
-        $this->default['database'] = getenv('DB_NAME') ?: $this->default['database'];
-        $this->default['username'] = getenv('DB_USER') ?: $this->default['username'];
-        $this->default['password'] = getenv('DB_PASSWORD') ?: $this->default['password'];
-        $this->default['port'] = (int) (getenv('DB_PORT') ?: $this->default['port']);
+        $this->default['hostname'] = getenv('DB_HOST') ?: getenv('database_default_hostname') ?: $this->default['hostname'];
+        $this->default['database'] = getenv('DB_NAME') ?: getenv('database_default_database') ?: $this->default['database'];
+        $this->default['username'] = getenv('DB_USER') ?: getenv('database_default_username') ?: $this->default['username'];
+        $this->default['password'] = getenv('DB_PASSWORD') ?: getenv('database_default_password') ?: $this->default['password'];
+        $this->default['port'] = (int) (getenv('DB_PORT') ?: getenv('database_default_port') ?: $this->default['port']);
 
         // Aiven requires TLS. Render can store the downloaded CA certificate
         // as DB_SSL_CA, or expose a mounted certificate path as DB_SSL_CA_PATH.
@@ -210,11 +210,21 @@ class Database extends Config
                 file_put_contents($sslCaPath, $sslCaContents);
             }
         }
+        $sslVerify = getenv('DB_SSL_VERIFY');
+        $encryptSetting = getenv('DB_ENCRYPT') ?: getenv('database_default_encrypt') ?: '';
+        if ($encryptSetting !== '') {
+            $decodedEncrypt = json_decode($encryptSetting, true);
+            if (is_array($decodedEncrypt)) {
+                $this->default['encrypt'] = $decodedEncrypt;
+            }
+        }
         if ($sslCaPath !== '') {
             $this->default['encrypt'] = [
                 'ssl_ca'     => $sslCaPath,
-                'ssl_verify' => true,
+                'ssl_verify' => $sslVerify === false || $sslVerify === '' ? true : filter_var($sslVerify, FILTER_VALIDATE_BOOLEAN),
             ];
+        } elseif ($sslVerify !== false && $sslVerify !== '') {
+            $this->default['encrypt'] = ['ssl_verify' => filter_var($sslVerify, FILTER_VALIDATE_BOOLEAN)];
         }
 
         // Ensure that we always set the database group to 'tests' if
