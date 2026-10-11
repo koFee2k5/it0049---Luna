@@ -24,7 +24,8 @@ class App extends BaseConfig
 
         $baseUrl = getenv('APP_BASE_URL') ?: getenv('app.baseURL') ?: '';
         if ($baseUrl === '' && isset($_SERVER['HTTP_HOST'])) {
-            $scheme = (! empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+            $forwardedProto = $_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '';
+            $scheme = $forwardedProto !== '' ? $forwardedProto : ((! empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http');
             $baseUrl = $scheme . '://' . $_SERVER['HTTP_HOST'];
         }
         if ($baseUrl !== '') {
