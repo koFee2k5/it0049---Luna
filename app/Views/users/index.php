@@ -12,6 +12,7 @@
                 <tr>
                     <th>Username</th>
                     <th>Full name</th>
+                    <th>Email</th>
                     <th>Role</th>
                 </tr>
             </thead>
@@ -20,6 +21,7 @@
                     <tr>
                         <td><?= esc($user['username']) ?></td>
                         <td><?= esc($user['full_name']) ?></td>
+                        <td><?= esc($user['email']) ?></td>
                         <td><span class="role">POS Staff</span></td>
                     </tr>
                 <?php endforeach ?>
