@@ -51,6 +51,17 @@ class Database extends Config
         ],
     ];
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->default['hostname'] = getenv('DB_HOST') ?: $this->default['hostname'];
+        $this->default['database'] = getenv('DB_NAME') ?: $this->default['database'];
+        $this->default['username'] = getenv('DB_USER') ?: $this->default['username'];
+        $this->default['password'] = getenv('DB_PASSWORD') ?: $this->default['password'];
+        $this->default['port'] = (int) (getenv('DB_PORT') ?: $this->default['port']);
+    }
+
     //    /**
     //     * Sample database connection for SQLite3.
     //     *
