@@ -15,6 +15,7 @@
             <div class="nav-links">
                 <a href="<?= esc(base_url()) ?>">Dashboard</a>
                 <a href="<?= esc(base_url('about')) ?>">About BPLS</a>
+                <a href="<?= esc(base_url('businesses')) ?>">Permits</a>
                 <a href="<?= esc(base_url('tasks')) ?>">Tasks</a>
                 <a href="<?= esc(base_url('customer-accounts')) ?>">Customers</a>
                 <a href="<?= esc(base_url('user-accounts')) ?>">Users</a>

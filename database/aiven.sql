@@ -1,5 +1,6 @@
 -- Import this file while connected to the Aiven database named in DB_NAME.
 DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS businesses;
 DROP TABLE IF EXISTS tasks;
 DROP TABLE IF EXISTS users;
 
@@ -10,6 +11,17 @@ CREATE TABLE tasks (
   task_date DATE NOT NULL,
   customer_id INT NULL,
   attachment VARCHAR(255) NULL,
+  created_at DATETIME NOT NULL
+);
+
+CREATE TABLE businesses (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  business_name VARCHAR(150) NOT NULL,
+  owner_name VARCHAR(150) NOT NULL,
+  permit_number VARCHAR(50) NOT NULL UNIQUE,
+  address VARCHAR(255) NOT NULL,
+  permit_status VARCHAR(20) NOT NULL DEFAULT 'Pending',
+  expiration_date DATE NOT NULL,
   created_at DATETIME NOT NULL
 );
 

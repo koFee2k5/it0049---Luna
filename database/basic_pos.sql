@@ -2,6 +2,7 @@ CREATE DATABASE IF NOT EXISTS basic_pos CHARACTER SET utf8mb4 COLLATE utf8mb4_ge
 USE basic_pos;
 
 DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS businesses;
 DROP TABLE IF EXISTS tasks;
 DROP TABLE IF EXISTS users;
 
@@ -31,6 +32,17 @@ CREATE TABLE customers (
   created_at DATETIME NOT NULL
 );
 
+CREATE TABLE businesses (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  business_name VARCHAR(150) NOT NULL,
+  owner_name VARCHAR(150) NOT NULL,
+  permit_number VARCHAR(50) NOT NULL UNIQUE,
+  address VARCHAR(255) NOT NULL,
+  permit_status VARCHAR(20) NOT NULL DEFAULT 'Pending',
+  expiration_date DATE NOT NULL,
+  created_at DATETIME NOT NULL
+);
+
 INSERT INTO tasks (title, status, task_date, created_at) VALUES
 ('Review project requirements', 'completed', '2026-10-09', '2026-10-09 08:00:00'),
 ('Create database tables', 'completed', '2026-10-09', '2026-10-09 08:30:00'),
@@ -54,3 +66,7 @@ INSERT INTO customers (full_name, email, phone, created_at) VALUES
 ('Isabella Garcia', 'isabella.garcia@example.com', '09191234567', '2026-10-03 10:25:00'),
 ('Ethan Brown', 'ethan.brown@example.com', '09201234567', '2026-10-04 11:30:00'),
 ('Mia Davis', 'mia.davis@example.com', '09211234567', '2026-10-05 12:35:00');
+
+INSERT INTO businesses (business_name, owner_name, permit_number, address, permit_status, expiration_date, created_at) VALUES
+('Luna Bakery', 'Juan Lorenzo M. Luna', 'BPLS-2026-001', 'Manila City', 'Approved', '2027-10-01', '2026-10-01 08:00:00'),
+('Mara Boutique', 'Mara Villanueva', 'BPLS-2026-002', 'Quezon City', 'Pending', '2027-10-05', '2026-10-05 09:30:00');
