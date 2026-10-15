@@ -27,7 +27,7 @@
                 <input name="full_name" value="<?= esc(old('full_name', $user['full_name'] ?? '')) ?>" required maxlength="100">
             </label>
             <label>
-                Profile picture
+                Profile picture <strong class="upload-label">(User avatar)</strong>
                 <input type="file" name="avatar" accept="image/jpeg,image/png">
                 <small>JPG or PNG, maximum 2MB. Images are resized to a 400×400 display copy.</small>
             </label>

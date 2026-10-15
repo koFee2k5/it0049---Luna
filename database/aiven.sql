@@ -8,6 +8,8 @@ CREATE TABLE tasks (
   title VARCHAR(150) NOT NULL,
   status VARCHAR(20) NOT NULL DEFAULT 'pending',
   task_date DATE NOT NULL,
+  customer_id INT NULL,
+  attachment VARCHAR(255) NULL,
   created_at DATETIME NOT NULL
 );
 

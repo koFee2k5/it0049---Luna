@@ -6,6 +6,8 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Pages::home');
 $routes->get('/about', 'Pages::about');
 $routes->get('/tasks', 'Tasks::index');
+$routes->match(['get', 'post'], '/tasks/new', 'Tasks::new');
+$routes->match(['get', 'post'], '/tasks/(:num)/edit', 'Tasks::edit/$1');
 $routes->get('/profile', 'Pages::profile');
 $routes->get('/customer-accounts', 'CustomerAccounts::index');
 $routes->match(['get', 'post'], '/customers/new', 'CustomerAccounts::new');

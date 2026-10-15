@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= esc($title) ?> | BPLS</title>
-    <link rel="stylesheet" href="<?= esc(base_url('css/style.css?v=20261016')) ?>">
+    <link rel="stylesheet" href="<?= esc(base_url('css/style.css?v=20261017')) ?>">
 </head>
 <body>
     <header>
@@ -15,6 +15,7 @@
             <div class="nav-links">
                 <a href="<?= esc(base_url()) ?>">Dashboard</a>
                 <a href="<?= esc(base_url('about')) ?>">About BPLS</a>
+                <a href="<?= esc(base_url('tasks')) ?>">Tasks</a>
                 <a href="<?= esc(base_url('customer-accounts')) ?>">Customers</a>
                 <a href="<?= esc(base_url('user-accounts')) ?>">Users</a>
                 <a href="<?= esc(base_url('profile')) ?>">Profile</a>
