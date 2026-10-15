@@ -17,7 +17,7 @@ class Pages extends BaseController
 
     public function about(): string
     {
-        return view('pages/about', ['title' => 'About']);
+        return view('pages/about', ['title' => 'BPLS']);
     }
 
     public function profile(): string
